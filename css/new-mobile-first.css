@@ -1,0 +1,686 @@
+@font-face {
+    font-family: 'futura_ltregular';
+    src: url('../fonts/futuralt-webfont.eot');
+    src: url('../fonts/futuralt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/futuralt-webfont.woff2') format('woff2'),
+         url('../fonts/futuralt-webfont.woff') format('woff'),
+         url('../fonts/futuralt-webfont.ttf') format('truetype'),
+         url('../fonts/futuralt-webfont.svg#futura_ltregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'futura_ltbold';
+    src: url('../fonts/futuralt-bold-webfont.eot');
+    src: url('../fonts/futuralt-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/futuralt-bold-webfont.woff2') format('woff2'),
+         url('../fonts/futuralt-bold-webfont.woff') format('woff'),
+         url('../fonts/futuralt-bold-webfont.ttf') format('truetype'),
+         url('../fonts/futuralt-bold-webfont.svg#futura_ltbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'futura_ltheavy';
+    src: url('../fonts/futuralt-heavy-webfont.eot');
+    src: url('../fonts/futuralt-heavy-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/futuralt-heavy-webfont.woff2') format('woff2'),
+         url('../fonts/futuralt-heavy-webfont.woff') format('woff'),
+         url('../fonts/futuralt-heavy-webfont.ttf') format('truetype'),
+         url('../fonts/futuralt-heavy-webfont.svg#futura_ltheavy') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'futura_ltbook';
+    src: url('../fonts/futuralt-book-webfont.eot');
+    src: url('../fonts/futuralt-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/futuralt-book-webfont.woff2') format('woff2'),
+         url('../fonts/futuralt-book-webfont.woff') format('woff'),
+         url('../fonts/futuralt-book-webfont.ttf') format('truetype'),
+         url('../fonts/futuralt-book-webfont.svg#futura_ltbook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+a.menu-link {
+  	    float: right;
+		    display: block;
+		    padding: 1.25em .5em 1em 1.25em;
+		    text-decoration: none;
+		    color:#fff;
+		    margin-top: -1.15em;
+
+		}
+.logo img {
+    padding: 1em;
+}
+		.menu, .menu > ul ul {
+			clear: both;
+			-webkit-transition: all 0.3s ease-out;  
+			-moz-transition: all 0.3s ease-out;
+			-ms-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+		}
+		.js .menu, .js .menu > ul ul {
+			overflow: hidden;
+			max-height: 0;
+		}
+		.menu.active, .js .menu > ul ul.active {
+			max-height: 55em;
+		}
+		.menu > ul {
+			border-top: 1px solid #648544;
+		}
+		.menu ul li a {
+			color: #fff;
+			display: block;
+			font-size:1em;
+			padding: 0.8em;
+			border-bottom: 1px solid #648544;
+			position: relative;
+			text-decoration:none;
+		}
+		nav.menu ul ul li a {
+		    color: #999;
+		    font-size: 1em;
+		    padding: 10px 20px;
+		    text-align: left;
+		    text-decoration: none;
+		}
+		.menu li.has-subnav > a:after {
+			content: '+';
+			position: absolute;
+			top: 0;
+			right: 0;
+			display: block;
+			font-size: 1.5em;
+			padding: 0.25em 0.5em;
+		}
+		.menu li.has-subnav > a.active:after {
+			content: "-";
+		}
+
+
+		.pattern {		
+			background: none repeat scroll 0 0 #d3debd;
+    		background-image: -webkit-linear-gradient(top, #d3debd, #7fa75a);
+    		background-image: linear-gradient(to bottom, #d3debd, #7fa75a);
+			
+    		padding: 0; 
+		}
+
+		.borderNav {
+			border:1px solid #fff;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			margin:.4em 0;
+		}
+
+		.menu li.borderNav a{
+			padding:.4em .8em;
+		}
+
+		.menu li.greyTab a{
+			border-bottom: 1px solid #123257;
+			-webkit-border-radius: 0px;
+			-moz-border-radius: 0px;
+			border-radius: 0px;
+		}
+		.menu li.greyTab ul a{
+			-webkit-border-radius: 0px;
+			-moz-border-radius: 0;
+			border-radius: 0;
+
+		}
+		.menu li.has-subnav.greyTab > a:after {
+			content: '+';
+			position: absolute;
+			top: 0;
+			right: 0;
+			display: block;
+			font-size: 1.5em;
+			padding: 0.25em 0.5em;
+		}
+		.menu li.has-subnav.greyTab > a.active:after {
+			content: "-";
+		}
+		
+		span.triangle{display:none;}
+	
+
+		
+		
+		/*@media screen and (min-width: 751px) {
+			.pattern {
+				overflow: visible;
+				background: #174274; 
+			}
+			a.menu-link {
+			   display: none;
+			}
+			.js .menu, .js .menu > ul ul {
+				max-height: none;
+				overflow: visible;
+				background: none;
+			}
+			.js .menu > ul ul {
+				background: #808080;
+				display: none;
+			}
+			.js .menu > ul li:hover > ul {
+				display: block;
+			}
+			.menu ul {
+				margin: 0 0 0 -0.25em;
+				border: 0;
+			}
+			.menu li a {
+				border: 0;
+			}
+
+			.menu li.has-subnav > a:after {
+				content: "";
+				font-size: 1em;
+				padding: 0.8em 0.5em;
+			}
+			.menu .level-1 > li.has-subnav > a:after {
+				content: "";
+			}
+			.menu > ul li {
+				margin: 0 0.25em;
+			}
+			.menu > ul > li {
+				display: inline-block;
+				position: relative;
+			}
+			.menu > ul ul {
+				position: absolute;
+				top: 0;
+				left: 12em;
+				width: 12em;
+			}
+			.menu > ul ul li {
+				position: relative;
+			}
+			.menu > ul ul.level-2 {
+				top: 3em;
+				left: -1em;
+			}
+			.menu > ul ul.level-2.greyPull {
+				top: 2.25em;
+				left: -7.25em;
+
+			}
+			.menu, .menu > ul ul {
+			clear: none;
+			-webkit-transition: all 0.3s ease-out;  
+			-moz-transition: all 0.3s ease-out;
+			-ms-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+		}
+		.logo img {
+    		padding: 1em 1em 1em 0;
+		}
+				.menu ul li a {
+			color: #fff;
+			display: block;
+			font-size:.9em;
+			padding: 0.8em;
+			border-bottom: none;
+			position: relative;
+			text-decoration:none;
+		}
+		nav.menu ul ul li a {
+		    color: #999;
+		    font-size: 0.75em;
+		    padding: 10px 20px;
+		    text-align: center;
+		    text-decoration: none;
+		    border:none;
+		}
+	}*/
+	/*Medium Size*/ 
+	@media screen and (min-width: 751px) and (max-width: 960px) {
+					.pattern {
+				overflow: visible;
+				background: #174274; 
+			}
+			a.menu-link {
+			   display: none;
+			}
+			.js .menu, .js .menu > ul ul {
+				max-height: none;
+				overflow: visible;
+				background: none;
+			}
+			.js .menu > ul ul {
+				background: #808080;
+				display: none;
+			}
+			.js .menu > ul li:hover > ul {
+				display: block;
+			}
+			.menu ul {
+				margin: 0 0 0 -0.25em;
+				border: 0;
+			}
+			.menu li a {
+				border: 0;
+			}
+
+			.menu li.has-subnav > a:after {
+				content: "";
+				font-size: 1em;
+				padding: 0.8em 0.5em;
+			}
+			.menu .level-1 > li.has-subnav > a:after {
+				content: "";
+			}
+			.menu > ul li {
+				margin: 0 0.25em;
+			}
+			.menu > ul > li {
+				display: inline-block;
+				position: relative;
+			}
+			.menu > ul ul {
+				position: absolute;
+				top: 0;
+				left: 12em;
+				width: 12em;
+			}
+			.menu > ul ul li {
+				position: relative;
+			}
+			.menu > ul ul.level-2 {
+				top: 2.5em;
+				left: .8em;
+			}
+			.menu > ul ul.level-2.greyPull {
+				top: 2em;
+				left: -6.75em;
+
+			}
+			.menu, .menu > ul ul {
+			clear: none;
+			-webkit-transition: all 0.3s ease-out;  
+			-moz-transition: all 0.3s ease-out;
+			-ms-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+		}
+		img.logo {
+    		padding: 1em 1em 1em 0;
+    		position: absolute;
+    		margin-top: 2.75em;
+    		width: 140px;
+    		height:auto;
+		}
+		nav.utility{
+			margin:1em 0 0 0;
+		}
+		.menu.utility ul li a {
+			font-family: "futura_ltregular";
+			color: #919191;
+			display: block;
+			font-size:12px;
+			font-weight: 400;
+			padding: 0.8em;
+			border-bottom: none;
+			position: relative;
+			text-transform:uppercase;
+		}
+		.menu.utility ul li a:hover {
+			text-decoration:underline;
+		}
+		.menu ul li a {
+			font-family: "futura_ltbold";
+			color: #648544;
+			display: block;
+			font-size:14px;
+			font-weight: 700;
+			padding: 0.8em;
+			border-bottom: none;
+			position: relative;
+			text-transform:uppercase;
+		}
+		nav.menu ul ul li a {
+		    color: #999;
+		    font-size: 0.75em;
+		    padding: 10px 20px;
+		    text-align: center;
+		    text-decoration: none;
+		    border:none;
+		}
+		span.triangle{display:inline-block;font-size:.85em}
+
+				.borderNav {
+			border:1px solid #fff;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			margin:.4em 0;
+		}
+
+		.menu li.borderNav a{
+			padding:.4em .8em;
+		}
+
+		.menu li.greyTab a{
+			color:#555;
+			background:none repeat scroll 0 0 #f4f3f0;
+			padding:.4em .8em;
+			border:1px solid #f4f3f0;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+
+		}
+		.menu li.greyTab ul a{
+			-webkit-border-radius: 0px;
+			-moz-border-radius: 0;
+			border-radius: 0;
+			color:#555;
+			background:none repeat scroll 0 0 #f4f3f0;
+		}
+
+	}
+	/*large Size*/ 
+		@media screen and (min-width: 961px) and (max-width: 1260px) {
+					.pattern {
+				overflow: visible;
+				background: #174274; 
+			}
+			a.menu-link {
+			   display: none;
+			}
+			.js .menu, .js .menu > ul ul {
+				max-height: none;
+				overflow: visible;
+				background: none;
+			}
+			.js .menu > ul ul {
+				background: #808080;
+				display: none;
+			}
+			.js .menu > ul li:hover > ul {
+				display: block;
+			}
+			.menu ul {
+				margin: 0 0 0 -0.25em;
+				border: 0;
+			}
+			.menu li a {
+				border: 0;
+			}
+
+			.menu li.has-subnav > a:after {
+				content: "";
+				font-size: 1em;
+				padding: 0.8em 0.5em;
+			}
+			.menu .level-1 > li.has-subnav > a:after {
+				content: "";
+			}
+			.menu > ul li {
+				margin: 0 0.25em;
+			}
+			.menu > ul > li {
+				display: inline-block;
+				position: relative;
+			}
+			.menu > ul ul {
+				position: absolute;
+				top: 0;
+				left: 12em;
+				width: 12em;
+			}
+			.menu > ul ul li {
+				position: relative;
+			}
+			.menu > ul ul.level-2 {
+				top: 3em;
+				left: .8em;
+			}
+			.menu > ul ul.level-2.greyPull {
+				top: 2.25em;
+				left: -6.125em;
+
+			}
+			.menu, .menu > ul ul {
+			clear: none;
+			-webkit-transition: all 0.3s ease-out;  
+			-moz-transition: all 0.3s ease-out;
+			-ms-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+		}
+		img.logo {
+    		padding: 1em 1em 1em 0;
+    		position: absolute;
+    		margin-top: 1.5em;
+		}
+		nav.utility{
+			margin:2em 0 0 0;
+		}
+		.menu.utility ul li a {
+			font-family: "futura_ltregular";
+			color: #919191;
+			display: block;
+			font-size:14px;
+			font-weight: 400;
+			padding: 0.8em;
+			border-bottom: none;
+			position: relative;
+			text-transform:uppercase;
+		}
+		.menu.utility ul li a:hover {
+			text-decoration:underline;
+		}
+		.menu ul li a {
+			font-family: "futura_ltbold";
+			color: #648544;
+			display: block;
+			font-size:16px;
+			font-weight: 700;
+			padding: 0.8em;
+			border-bottom: none;
+			position: relative;
+			text-transform:uppercase;
+		}
+		nav.menu ul ul li a {
+		    color: #999;
+		    font-size: 0.75em;
+		    padding: 10px 20px;
+		    text-align: center;
+		    text-decoration: none;
+		    border:none;
+		}
+		span.triangle{display:inline-block;font-size:.85em}
+
+				.borderNav {
+			border:1px solid #fff;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			margin:.4em 0;
+		}
+
+		.menu li.borderNav a{
+			padding:.4em .8em;
+		}
+
+		.menu li.greyTab a{
+			color:#555;
+			background:none repeat scroll 0 0 #f4f3f0;
+			padding:.4em .8em;
+			border:1px solid #f4f3f0;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+
+		}
+		.menu li.greyTab ul a{
+			-webkit-border-radius: 0px;
+			-moz-border-radius: 0;
+			border-radius: 0;
+			color:#555;
+			background:none repeat scroll 0 0 #f4f3f0;
+		}
+
+	}
+		/*xlarge*/
+		@media screen and (min-width: 1261px) {
+			.pattern {
+				overflow: visible;
+				background: #174274; 
+			}
+			a.menu-link {
+			   display: none;
+			}
+			.js .menu, .js .menu > ul ul {
+				max-height: none;
+				overflow: visible;
+				background: none;
+			}
+			.js .menu > ul ul {
+				background: #808080;
+				display: none;
+			}
+			.js .menu > ul li:hover > ul {
+				display: block;
+			}
+			.menu ul {
+				margin: 0 0 0 -0.25em;
+				border: 0;
+			}
+			.menu li a {
+				border: 0;
+			}
+
+			.menu li.has-subnav > a:after {
+				content: "";
+				font-size: 1em;
+				padding: 0.8em 0.5em;
+			}
+			.menu .level-1 > li.has-subnav > a:after {
+				content: "";
+			}
+			.menu > ul li {
+				margin: 0 0.25em;
+			}
+			.menu > ul > li {
+				display: inline-block;
+				position: relative;
+			}
+			.menu > ul ul {
+				position: absolute;
+				top: 0;
+				left: 12em;
+				width: 12em;
+			}
+			.menu > ul ul li {
+				position: relative;
+			}
+			.menu > ul ul.level-2 {
+				top: 3em;
+				left: .8em;
+			}
+			.menu > ul ul.level-2.greyPull {
+				top: 2.25em;
+				left: -6.125em;
+
+			}
+			.menu, .menu > ul ul {
+			clear: none;
+			-webkit-transition: all 0.3s ease-out;  
+			-moz-transition: all 0.3s ease-out;
+			-ms-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+		}
+		img.logo {
+    		padding: 1em 1em 1em 0;
+    		position: absolute;
+    		margin-top: 1.5em;
+		}
+		nav.utility{
+			margin:2em 0 0 0;
+		}
+		.menu.utility ul li a {
+			font-family: "futura_ltregular";
+			color: #919191;
+			display: block;
+			font-size:14px;
+			font-weight: 400;
+			padding: 0.8em;
+			border-bottom: none;
+			position: relative;
+			text-transform:uppercase;
+		}
+		.menu.utility ul li a:hover {
+			text-decoration:underline;
+		}
+		.menu ul li a {
+			font-family: "futura_ltbold";
+			color: #648544;
+			display: block;
+			font-size:18px;
+			font-weight: 700;
+			padding: 0.8em;
+			border-bottom: none;
+			position: relative;
+			text-transform:uppercase;
+		}
+		nav.menu ul ul li a {
+		    color: #999;
+		    font-size: 0.75em;
+		    padding: 10px 20px;
+		    text-align: center;
+		    text-decoration: none;
+		    border:none;
+		}
+		span.triangle{display:inline-block;font-size:.85em}
+
+				.borderNav {
+			border:1px solid #fff;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			margin:.4em 0;
+		}
+
+		.menu li.borderNav a{
+			padding:.4em .8em;
+		}
+
+		.menu li.greyTab a{
+			color:#555;
+			background:none repeat scroll 0 0 #f4f3f0;
+			padding:.4em .8em;
+			border:1px solid #f4f3f0;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+
+		}
+		.menu li.greyTab ul a{
+			-webkit-border-radius: 0px;
+			-moz-border-radius: 0;
+			border-radius: 0;
+			color:#555;
+			background:none repeat scroll 0 0 #f4f3f0;
+		}
+
+	}

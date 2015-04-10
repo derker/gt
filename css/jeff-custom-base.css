@@ -1,0 +1,742 @@
+/**
+* Ink
+*
+* A set of tools for quick development of web interfaces.
+*
+* @package   Ink
+* @author    Sapo Ink Team
+* @license   http://opensource.org/licenses/MIT MIT
+* @link      http://ink.sapo.pt
+* @version   3.1.2
+*/
+/** 
+ * Sets the grids maximum width
+ * @var $grid-max-width (pixels|ems|percentage)
+ */
+/*!
+ * Sets the grids breakpoint
+ * 
+ * To add a new break point you'll need to add an element to the list.
+ * 
+ * Here's an example: ( class-name-prefix, minimum-width, maximum-width, gutter-width, no-media-query).
+ * 
+ * media: media type.
+ * class-name-prefix: this is the prefix used in tons of inks classes i.e.: large-100, small-40, etc.
+ * minimum-width: (pixels|null) the minimum width for the breakpoint 
+ * maximum-width: (pixels|null) the maximum width for the breakpoint 
+ * gutter-width: (ems) the width for the gutters (space between grid columns) for the breakpoint 
+ * no-media-query: (true|false) if you need to support IE8 set this to true on a single breakpoint.
+ *                 Since IE8 does not support the @media statement leaving one of the breakpoints
+ *                 outside a @media query let's you use the grid in IE8.
+ *  
+ */
+ @font-face {
+    font-family: 'SourceSansProRegular';
+    src: url('../fonts/SourceSansPro-Regular-webfont.eot');
+    src: url('../fonts/SourceSansPro-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ourceSansPro-Regular-webfont.woff') format('woff'),
+         url('../fonts/SourceSansPro-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/SourceSansPro-Regular-webfont.svg#SourceSansProRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'SourceSansProItalic';
+    src: url('../fonts/SourceSansPro-It-webfont.eot');
+    src: url('../fonts/SourceSansPro-It-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/SourceSansPro-It-webfont.woff') format('woff'),
+         url('../fonts/SourceSansPro-It-webfont.ttf') format('truetype'),
+         url('../fonts/SourceSansPro-It-webfont.svg#SourceSansProItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceSansProSemibold';
+    src: url('../fonts/SourceSansPro-Semibold-webfont.eot');
+    src: url('../fonts/SourceSansPro-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/SourceSansPro-Semibold-webfont.woff') format('woff'),
+         url('../fonts/SourceSansPro-Semibold-webfont.ttf') format('truetype'),
+         url('../fonts/SourceSansPro-Semibold-webfont.svg#SourceSansProSemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+  html, body {
+     height: 100%;
+     background: #f0f0f0;
+    font-family: 'Montserrat', sans-serif;
+ }
+ .wrap {
+     min-height: 100%;
+     height: auto !important;
+     height: 100%;
+     margin: 0 auto -500px;
+     overflow: auto;
+ }
+ .push, footer {
+     height: 500px;
+     margin-top: 0;
+ }
+ footer {
+     background: #174274;
+     border: 0;
+ }
+ footer * {
+     line-height: inherit;
+ }
+ .top-menu {
+    background: none repeat scroll 0 0 #174274;
+    box-shadow: 0 8px 6px -7px black;
+    padding: 15px 0 5px;
+
+ }
+
+ /* NAV Styles***********************************************/
+ nav {
+  margin: 100px auto; 
+  text-align: right;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 0.85em;
+}
+
+nav ul ul {
+  display: none;
+}
+
+  nav ul li:hover > ul {
+    display: block;
+    -moz-box-shadow:    3px 3px 6px #222;
+    -webkit-box-shadow: 3px 3px 6px #222;
+    box-shadow:         3px 3px 6px #222;
+    z-index: 999;
+  }
+
+
+nav ul {
+  background: #174274; 
+  padding: 0 20px;
+  list-style: none;
+  position: relative;
+  display: inline-table;
+}
+  nav ul:after {
+    content: ""; clear: both; display: block;
+  }
+
+  nav ul li {
+    float: left;
+  }
+    nav ul li:hover {
+      background: #174274;
+      text-decoration: none;
+    }
+      nav ul li:hover a {
+        color: #fff;
+        text-decoration:none;
+
+      }
+    
+    nav ul li a {
+      display: block;
+      padding: 10px 15px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+
+    nav ul li a.takeActionButton {
+      display: block;
+      padding: 5px 15px;
+      margin: 5px 0 0 15px;
+      color: #444;
+      text-decoration: none;
+      background: #f4f3f0;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px; /* future proofing */
+      -khtml-border-radius: 5px; /* for old Konqueror browsers */
+    }
+      
+    
+  nav ul ul {
+    background: #174274; border-radius: 0px; padding: 0;
+    position: absolute; top: 100%;
+  }
+    nav ul ul li {
+      float: none; 
+    }
+      nav ul ul li a {
+        padding: 10px 20px;
+        color: #999;
+        text-decoration:none;
+        text-align: center;
+        font-size: .75em;
+      } 
+        nav ul ul li a:hover {
+          background: #1a4b83;
+          text-decoration:none;
+        }
+    
+  nav ul ul ul {
+    position: absolute; left: 100%; top:0;
+  }
+    
+ /* Article Styles***********************************************/
+ .articleSection{
+
+ }
+
+.bkgrndImg{
+
+ }
+.breadcrumbNav{
+    padding: 40px 0 400px 0;
+    font-size: .75em;
+
+}
+.breadcrumbNav a, .breadcrumbNav a:visited {
+  color:#fff;
+  text-decoration: none;
+}
+.breadcrumbNav2{
+    padding: 40px 0 175px;
+    font-size: .75em;
+
+}
+.breadcrumbNav2 a, .breadcrumbNav2 a:visited {
+  color:#fff;
+  text-decoration: none;
+}
+
+ h1.headline {
+  font-weight: 700;
+  font-size: 2.5em;
+  color:#fff;
+
+ }
+ h3.tagline {
+    font-weight: 400;
+  font-size: 1.25em;
+  color:#fff;
+
+ }
+ .byline{
+
+ }
+ h5.bylineHeader {
+    font-family:'SourceSansProRegular', sans-serif;
+    color: #fff;
+    font-size: 0.85em;
+    padding-top: 0.7em;
+    font-weight: 100;
+
+ }
+
+
+ h2.sectionHeader {
+  font-weight: 700;
+  font-size: 2em;
+  padding: 80px 0 0;
+
+ }
+
+ figure.ink-image > figcaption {
+    background: none;
+    padding: 1em 0 0;
+    font-family: 'SourceSansProItalic', sans-serif;
+}
+
+ figure.ink-image {
+    border: none;
+
+}
+
+.topArticle{
+    background: url(../img/fisherman.jpg) no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 757px;
+
+}
+
+.middleArticle{
+
+}
+
+p.spacy{
+  line-height: 1.75em;
+  margin-bottom: 3em;
+}
+
+.NextArticle {
+  background: url(../img/farmersMarket.jpg) no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 463px;
+  margin-top: 80px;
+}
+
+.buffer {
+  height: 135px;
+  padding: 164px 2em 0;
+}
+
+.pullSectionUp {
+
+}
+/* Footer */
+
+h4.footerNavLinkHeader {
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: 400;
+    margin-bottom: 1em;
+    margin-top: 3.5em;
+}
+
+ul.footerNavLinks li a {
+    font-family:'SourceSansProRegular', sans-serif;
+    color: #cccece;
+    font-size: 0.9em;
+    font-weight: 100;
+}
+
+.borderbottom{
+  border-bottom: 1px solid #cccece;
+  padding-bottom: 15px;
+}
+.addressFooter {
+	position: absolute;
+	padding: .5em 0;
+}
+.policyLinks, .addressFooter {
+    font-family:'SourceSansProRegular', sans-serif;
+    color: #cccece;
+    font-size: 0.75em;
+    font-weight: 100;
+}
+ .policyLinks a, .addressFooter a {
+    font-family:'SourceSansProRegular', sans-serif;
+    color: #cccece;
+    font-weight: 100;
+}
+
+ul.inline li.lastRight{
+  padding-right: 0;
+}
+/* PROFILE */
+.topArticle-profile {
+  background: url(../img/member-background.jpg) no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 746px;
+  max-height: 746px;
+}
+ul.smalltiles {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0px;
+}
+ul.smalltiles li {
+  margin: 0 9px 9px 0;
+  list-style: none;
+  background: #fff;
+  padding: 2px;
+  float: left;
+width: 82px; 
+  font-size: 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+ul.smalltiles li img {
+  border: 1px solid #cccaca;
+  margin-bottom: 4px;
+}
+ul.smalltiles li h3 {
+  font-size: .8em;
+  font-weight: normal;
+}
+
+.greyBookmark {
+  background:#eaeaeb;
+  padding: 1em 1.5em;
+}
+h2.supportHeader{
+    font-family:'SourceSansProSemibold', sans-serif;
+    color: #828383;
+    font-size: 1.15em;
+    font-weight: 400;
+}
+span.date{
+    font-family:'SourceSansProRegular', sans-serif;
+    color: #828383;
+    font-size: 0.65em;
+    font-weight: 100;
+}
+
+.supporterLogo{
+
+}
+.supporterLogo img{
+  border:4px solid #fff;
+  -webkit-border-radius: 6px; 
+  -moz-border-radius: 6px; 
+  border-radius: 6px;
+    margin: -101px 0 0;
+}
+.bluebutton{
+
+      text-decoration: none;
+      color:#f6f6f2;
+      background: #0091cf;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px; /* future proofing */
+      -khtml-border-radius: 5px; /* for old Konqueror browsers */
+      font-size: 0.85em;
+      padding: 6px 35px;
+      border:1px solid #0091cf;
+}
+.whitebutton{
+    font-size: 0.85em;
+    padding: 6px 35px;
+        text-decoration: none;
+      background: #f6f6f2;
+      color:#0091cf;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px; /* future proofing */
+      -khtml-border-radius: 5px; /* for old Konqueror browsers */
+      border:1px solid #0091cf;
+}
+
+a.tabAnchors {
+  color:#828383;
+}
+
+a.tabAnchors.active {
+  color:#444;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+p.liteText{
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 0.85em;
+  line-height: 1.65em;
+}
+
+h4.areaHeader{
+    color: #777;
+    font-size: 0.85em;
+}
+
+h4.areaHeader.topspacer{
+    color: #777;
+    font-size: 0.85em;
+    margin-top: 3em;
+}
+
+.litebluebutton{
+
+      text-decoration: none;
+      color:#f6f6f2;
+      background: #6aafe0;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px; /* future proofing */
+      -khtml-border-radius: 5px; /* for old Konqueror browsers */
+      font-size: 1em;
+      line-height: 1.65em;
+      padding: 10px 15px;;
+      border:1px solid #6aafe0;
+}
+
+.photoDiv1{
+  background-color: #fff;
+  padding:.5em;
+  margin-right: 1.5em;
+}
+.photoDiv2{
+  background-color: #fff;
+  padding:.5em;
+}
+
+.photoDiv1 a, .photoDiv2 a {
+  text-decoration: none;
+}
+
+.photolink{
+
+}
+
+figure.ink-image > figcaption.captionPull{
+    color: #fff;
+    font-family: "Montserrat",sans-serif;
+    font-size: 1.33em;
+    font-weight: 700;
+    margin: -55px 0 10px 10px;
+
+}
+
+.photoTag{
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+  line-height: 1.33em;
+  color:#777;
+  margin-bottom: 0.7em;
+}
+
+nav.photoNav ul{
+  background:none;
+}
+
+.ink-dropdown, .ink-navigation.photoNav{
+    color: #777;
+    font-family: "SourceSansProRegular",sans-serif;
+    font-size: 0.75em;
+    font-weight: 100;
+    margin:0;
+}
+
+.ink-navigation.photoNav .breadcrumbs li {
+    color: #777;
+    font-family: "SourceSansProRegular",sans-serif;
+    font-size: 0.75em;
+    font-weight: 100;
+}
+.ink-navigation.photoNav .breadcrumbs li:hover {
+background: none;
+}
+.ink-navigation.photoNav .breadcrumbs li a {
+    color: #777;
+    font-family: "SourceSansProRegular",sans-serif;
+    font-size: 1em;
+    font-weight: 100;
+}
+.ink-navigation.photoNav .breadcrumbs li:after {
+  content: ','; /* this is the separator character */
+}
+
+.ink-navigation.photoNav .breadcrumbs li:first-child a {
+  padding:0;
+}
+
+.ink-navigation.photoNav .breadcrumbs li:after {
+margin:0;
+}
+
+.ink-navigation.photoNav .breadcrumbs li {
+  line-height: 1.25em;
+}
+
+.column-group.support.horizontal-gutters{
+  margin-left:-1.5em;
+}
+
+.column-group.support.horizontal-gutters > [class*="xlarge-"], .column-group.support.horizontal-gutters > [class*="all-"], .column-group.support.horizontal-gutters > .all-auto {
+padding-left:1.5em;
+}
+
+.supportDiv{
+
+}
+
+.supportImageLogo{
+border: 1px solid #000;
+}
+
+.captionSupport{
+
+}
+
+.middleArticle-profile{
+height:900px;
+}
+
+.details{
+    border-bottom: 1px solid #ccc;
+    color: #777;
+    font-family: "SourceSansProRegular",sans-serif;
+    font-size: 0.9em;
+    font-weight: 300;
+    line-height: 1em;
+    padding-bottom: 4em;
+}
+
+.details a, .details a:visited {
+    color: #777;
+    text-decoration:none;
+}
+
+ul.inline.greySocial li:first-child{
+  padding: 0 0.1em;
+}
+
+ul.greySocial li{
+padding: 0 0.1em;
+}
+ul.greySocial.unstyled.inline.half-vertical-space{
+  margin-bottom: 0;
+}
+
+/* for xlarge screens */
+@media screen and (min-width: 1261px) {
+
+}
+/* for large screens */
+@media screen and (min-width: 961px) and (max-width: 1260px) {
+  /* your css for large screens goes here ... */
+}
+/* for medium screens */
+@media screen and (min-width: 641px) and (max-width: 960px) {
+  /* your css for medium screens goes here ... */
+}
+/* for small screens */
+@media screen and (min-width: 321px) and (max-width: 640px) {
+  /* your css for small screens goes here ... */
+}
+/* for tiny screens */
+@media screen and (max-width: 320px) {
+  /* your css for tiny screens goes here ... */
+}
+
+
+
+
+
+
+/* Food */
+.standardGray p {
+	font-family: "SourceSansProRegular",sans-serif;
+	font-size: 1.1em;
+	line-height: 1.6em;
+}
+.topArticle-food {
+	background-image: url('../img/food-background.jpg');
+	min-height: 306px;
+	padding-top: 104px;
+}
+a.rightlink {
+	font-size: 14px;
+	color: #454546;
+	font-family: "SourceSansProRegular",sans-serif;
+	float: right;
+	margin-top: 10px;
+}
+a.rightlink:hover {
+	color: #454546;
+}
+.NextArticle-food {
+	background: white;
+	background-image: none;
+}
+.shortbuffer {
+	padding-top: 120px;
+}
+.standardGray h2 {
+	margin-bottom: 60px;
+}
+.campaignbuttons {
+	margin-bottom: 60px;
+}
+ul.tiles {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 120px;
+}
+ul.tiles li {
+	margin: 0 24px 24px 0;
+	list-style: none;
+	background: #f4f3f0;
+	padding: 8px;
+	float: left;
+	width: 182px;
+	font-size: 10px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+ul.tiles a {
+	color: #6d6e71;
+	text-decoration: none;
+}
+ul.tiles img {
+	margin-bottom: 8px;
+}
+ul.tiles h3 {
+	font-family: "SourceSansProRegular",sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	color: #6d6e71;
+	margin-bottom: 5px;
+}
+ul.tiles p {
+	font-size: 10px;
+	line-height: 12px;
+	margin-bottom: 3px;
+}
+ul.tiles li p.location {
+	font-size: 8px;
+}
+ul.campaignstats {
+	margin: 0 0 30px 0;
+	padding: 0;
+	width: 100%;
+}
+ul.campaignstats li {
+	float: left;
+	margin: 0 40px 0 0;
+	list-style: none;
+	font-size: .6em;
+}
+ul.campaignstats li h4 {
+	font-weight: normal;
+	margin-bottom: 0;
+	font-size: 20px;
+}
+.sidebar h2 {
+	font-size: 1em;
+	margin-bottom: 30px;
+}
+.sidebar > div > div {
+	background: #fff;
+	width: 304px;
+	margin-bottom: 30px;
+}
+.sidebar > div > div a {
+	color: #3e444c;
+}
+.sidebar > div > div a:hover {
+	text-decoration: none;
+}
+.sidebar > div > div div {
+	padding: 28px 26px;
+	font-size: .7em;
+}
+.sidebar > div > div h3 {
+	margin-bottom: 5px;
+}
+.sidebar > div > div p {
+	margin: 0;
+	line-height: 1.3em;
+}
+@media screen and (max-width: 960px) {
+    .sidebar > div > div {
+        margin-right: 30px;
+    }
+}
